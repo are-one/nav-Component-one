@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import com.example.navcomponentone.databinding.FragmentDetailCategoryBinding
 
 class DetailCategoryFragment : Fragment() {
@@ -36,6 +37,10 @@ class DetailCategoryFragment : Fragment() {
 
         binding.tvCategoryName.text = dataName
         binding.tvCategoryDescription.text = "Stock : $dataDescription"
+
+        binding.btnProfile.setOnClickListener {
+            view.findNavController().navigate(R.id.action_detailCategoryFragment_to_homeFragment)
+        }
 
     }
 
