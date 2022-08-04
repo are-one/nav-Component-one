@@ -24,6 +24,18 @@ class DetailCategoryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Mengambil data tanpa menggunakan safeArgs
+        /*
+        val dataName = arguments?.getString(CategoryFragment.EXTRA_NAME)
+        val dataDescription = arguments?.getLong(CategoryFragment.EXTRA_STOCK)
+        */
+
+        //Mengambil data menggunakan SafeArgs
+        val dataName = DetailCategoryFragmentArgs.fromBundle(arguments as Bundle).name
+        val dataDescription = DetailCategoryFragmentArgs.fromBundle(arguments as Bundle).stock
+
+        binding.tvCategoryName.text = dataName
+        binding.tvCategoryDescription.text = "Stock : $dataDescription"
 
     }
 
